@@ -5,7 +5,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('listing',[
+        'heading'=>'latest listing',
+        'listings'=>[
+            [
+                'id'=> 1 ,
+                'title'=>'Listing 1',
+                'description'=>"Arono what to write here"
+            ],
+        ]
+    ]);
 });
 
 Route::get('/hello',function () { 
