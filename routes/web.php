@@ -1,19 +1,21 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
+//All listing
 Route::get('/', function () {
-    return view('listing',[
+    return view('listings',[
         'heading'=>'latest listing',
-        'listings'=>[
-            [
-                'id'=> 1 ,
-                'title'=>'Listing 1',
-                'description'=>"Arono what to write here"
-            ],
-        ]
+        'listings'=>Listing::all()
+    ]);
+});
+
+//Single listing
+Route::get('/list/{id}',function($id){
+    return view('listing',[
+        'listing'=>Listing::find($id)
     ]);
 });
 
