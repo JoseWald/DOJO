@@ -3,21 +3,13 @@
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListingController;
 
 //All listing
-Route::get('/', function () {
-    return view('listings',[
-        'heading'=>'latest listing',
-        'listings'=>Listing::all()
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 //Single listing
-Route::get('/list/{listing}',function(Listing $listing){
-    return view('listing',[
-        'listing'=>$listing
-    ]);
-});
+Route::get('/list/{listing}',[ListingController::class, 'show']);
 
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
