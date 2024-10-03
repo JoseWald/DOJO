@@ -13,7 +13,7 @@ Route::get('/', function () {
 });
 
 //Single listing
-Route::get('/list/{id}',function(Listing $listing){
+Route::get('/list/{listing}',function(Listing $listing){
     return view('listing',[
         'listing'=>$listing
     ]);
