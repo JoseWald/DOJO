@@ -1,2 +1,5 @@
+@extends('layout')
 
-<h1>{{ $listing['description'] }}</h1>
+@section('content')
+    <h1>{{ $listing['description'] }}</h1>
+@endsection
