@@ -25,6 +25,9 @@ Route::get('/list/{listing}/edit',[ListingController::class, 'edit']);
 //Submit the updated post
 Route::put('/list/{listing}',[ListingController::class, 'update']);
 
+//Deleting post
+Route::delete('/list/{listing}',[ListingController::class, 'delete']);
+
 
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
