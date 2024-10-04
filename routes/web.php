@@ -8,8 +8,16 @@ use App\Http\Controllers\ListingController;
 //All listing
 Route::get('/', [ListingController::class, 'index']);
 
+
+//Show create form
+Route::get('/list/create', [ListingController::class, 'create']);
+
+
 //Single listing
 Route::get('/list/{listing}',[ListingController::class, 'show']);
+
+//Store the listing data
+Route::post('/listing',[ListingController::class, 'store']);
 
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
