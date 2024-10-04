@@ -19,6 +19,13 @@ Route::get('/list/{listing}',[ListingController::class, 'show']);
 //Store the listing data
 Route::post('/listing',[ListingController::class, 'store']);
 
+//Show edit form
+Route::get('/list/{listing}/edit',[ListingController::class, 'edit']);
+
+//Submit the updated post
+Route::put('/list/{listing}',[ListingController::class, 'update']);
+
+
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
     ->header('foo', 'bar'); 
