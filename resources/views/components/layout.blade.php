@@ -39,7 +39,7 @@
                     <span class="font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
                 </li>
                 <li>
-                    <a href="/list/manage" class="hover:text-laravel"
+                    <a href="/listing/manage" class="hover:text-laravel"
                         ><i class="fa-gear  fa-arrow-right-to-bracket"></i>
                         Manage Listings</a
                     >

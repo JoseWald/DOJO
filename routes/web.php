@@ -29,8 +29,12 @@ Route::put('/list/{listing}',[ListingController::class, 'update'])->middleware('
 //Deleting post
 Route::delete('/list/{listing}',[ListingController::class, 'delete'])->middleware('auth');
 
+//Manage listing
+Route::get('/listing/manage',[ListingController::class, 'manage'])->middleware('auth');
+
 //Show register create form
 Route::get('/register',[UserController::class,'register'])->middleware('guest');
+
 
 //Create new user
 Route::post('/users',[UserController::class, 'store']);
@@ -43,6 +47,8 @@ Route::get('/login',[UserController::class, 'login'])->name('login')->middleware
 
 //Route to login
 Route::post('/users/login',[UserController::class, 'authenticate']);
+
+
 
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
