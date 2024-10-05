@@ -3,6 +3,7 @@
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 //All listing
@@ -28,6 +29,11 @@ Route::put('/list/{listing}',[ListingController::class, 'update']);
 //Deleting post
 Route::delete('/list/{listing}',[ListingController::class, 'delete']);
 
+//Show register create form
+Route::get('/register',[UserController::class,'register']);
+
+//Create new user
+Route::post('/users',[UserController::class, 'store']);
 
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
