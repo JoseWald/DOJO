@@ -32,6 +32,28 @@
             <a href="/"
                 ><img class="w-24" src="{{ asset('Images/house.png') }}" alt="logo" class="logo"
             /></a>
+
+            @auth
+            <ul class="flex space-x-6 mr-6 text-lg">
+                <li>
+                    <span class="font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
+                </li>
+                <li>
+                    <a href="/list/manage" class="hover:text-laravel"
+                        ><i class="fa-gear  fa-arrow-right-to-bracket"></i>
+                        Manage Listings</a
+                    >
+                </li>
+                <li>
+                    <form class="inline" method="POST" action="/logout">
+                        @csrf
+                        <button type="submit">
+                            <i class="fa-solid fa-door-closed"></i> Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+            @else
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
                     <a href="/register" class="hover:text-laravel"
@@ -45,6 +67,8 @@
                     >
                 </li>
             </ul>
+
+            @endauth
         </nav>
 
        {{-- VIEW OUTPUT --}}

@@ -35,6 +35,9 @@ Route::get('/register',[UserController::class,'register']);
 //Create new user
 Route::post('/users',[UserController::class, 'store']);
 
+//Logging out
+Route::post('/logout',[UserController::class,'logout']);
+
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
     ->header('foo', 'bar'); 
