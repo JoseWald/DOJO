@@ -38,6 +38,12 @@ Route::post('/users',[UserController::class, 'store']);
 //Logging out
 Route::post('/logout',[UserController::class,'logout']);
 
+//Show login form
+Route::get('/login',[UserController::class, 'login']);
+
+//Route to login
+Route::post('/users/login',[UserController::class, 'authenticate']);
+
 Route::get('/hello',function () { 
     return response('Hello',401)->header('Content-Type', 'application')
     ->header('foo', 'bar'); 
